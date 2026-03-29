@@ -1,6 +1,7 @@
 import pygame
 from logger import log_state
 from player import Player
+from asteroid import Astreoid
 from constants import SCREEN_WIDTH, SCREEN_HEIGHT
 
 
@@ -12,7 +13,9 @@ def main():
     clock = pygame.time.Clock()
     updatable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
+    asteroids = pygame.sprite.Group()
     Player.containers = (updatable, drawable)
+    Astreoid.containers = (asteroids, updatable, drawable)
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
     dt = 0
 
@@ -28,7 +31,7 @@ def main():
 
         for object in drawable:
             object.draw(screen)
-            
+
         pygame.display.flip()
         clock.tick(60)
         dt = (clock.tick(60) / 1000)
