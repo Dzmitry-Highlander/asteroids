@@ -20,7 +20,6 @@ def main():
         pygame.display.flip()
         clock.tick(60)
         dt = clock.tick() / 1000
-        print(dt)
 
     
     print(f"Starting Asteroids with pygame version: {pygame.version.ver}")
